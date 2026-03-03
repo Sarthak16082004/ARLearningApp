@@ -29,15 +29,14 @@ const AlphabetScreen = () => {
       )}
 
       {/* Letter picker at bottom */}
-      <View style={styles.pickerWrapper} pointerEvents="box-none">
+      <View style={styles.pickerWrapper}>
         <Text style={styles.hint}>
           {selected ? `${selected} is for ${selectedData?.word}` : 'Tap a letter to see it in AR'}
         </Text>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.scrollContent}
-          pointerEvents="box-none">
+          contentContainerStyle={styles.scrollContent}>
           {LETTERS.map(letter => {
             const d = ALPHABET_DATA[letter];
             const isActive = selected === letter;

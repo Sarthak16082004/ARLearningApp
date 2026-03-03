@@ -17,15 +17,14 @@ const ShapesScreen = () => {
             )}
 
             {/* Shape picker */}
-            <View style={styles.pickerWrapper} pointerEvents="box-none">
+            <View style={styles.pickerWrapper}>
                 <Text style={styles.hint}>
                     {selected ? `${selectedShape?.emoji} ${selectedShape?.label} — drag to rotate!` : 'Tap a shape to see it in 3D AR'}
                 </Text>
                 <ScrollView
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={styles.scrollContent}
-                    pointerEvents="box-none">
+                    contentContainerStyle={styles.scrollContent}>
                     {SHAPES.map(shape => {
                         const isActive = selected === shape.id;
                         return (

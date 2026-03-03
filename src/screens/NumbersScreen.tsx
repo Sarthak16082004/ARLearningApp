@@ -17,15 +17,14 @@ const NumbersScreen = () => {
             )}
 
             {/* Number picker */}
-            <View style={styles.pickerWrapper} pointerEvents="box-none">
+            <View style={styles.pickerWrapper}>
                 <Text style={styles.hint}>
                     {selected !== null ? `Number ${selected}` : 'Tap a number to see it in 3D AR'}
                 </Text>
                 <ScrollView
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    contentContainerStyle={styles.scrollContent}
-                    pointerEvents="box-none">
+                    contentContainerStyle={styles.scrollContent}>
                     {NUMBERS.map(num => {
                         const isActive = selected === num;
                         return (
