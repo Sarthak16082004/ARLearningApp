@@ -1,8 +1,29 @@
 {
-  "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": ["jest"],
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-native",
+
+    "strict": false,
+    "allowJs": true,
+    "noEmit": true,
+
+    "moduleResolution": "node",
+
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    "types": ["react", "react-native"],
+    "lib": ["esnext"],
+
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }
