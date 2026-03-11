@@ -66,7 +66,7 @@ export default function LoginScreen({ onLogin }: Props) {
         setLoading(true);
         try {
             // Small delay for visual feedback (reduced to 400ms)
-            await new Promise(r => setTimeout(r, 400));
+            await new Promise(r => setTimeout(() => r(undefined), 400));
 
             const u = username.trim().toLowerCase();
             const p = password.trim();

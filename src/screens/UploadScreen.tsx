@@ -7,6 +7,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { db, bucket, COLLECTIONS, STORAGE_FOLDERS } from '../config/firebase';
+
 export type UploadCategory = 'alphabet' | 'number' | 'shape' | 'animal';
 export type CustomItem = {
     id: string;
@@ -14,19 +16,27 @@ export type CustomItem = {
     category: UploadCategory;
     uri: string;
     createdAt: string;
+    modelType?: string; // Optional if we add 3D support later
 };
 
-const STORAGE_KEY = 'ar_custom_uploads';
-
+// --- Firebase Data Fetching ---
 export async function loadCustomItems(): Promise<CustomItem[]> {
     try {
-        const raw = await AsyncStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
-    } catch { return []; }
+        const snapshot = await db.collection(COLLECTIONS.AR_CONTENT)
+            .orderBy('createdAt', 'desc')
+            .get();
+        return snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        })) as CustomItem[];
+    } catch (err) {
+        console.error("Firebase Load Error:", err);
+        return [];
+    }
 }
 
-async function saveItems(items: CustomItem[]) {
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+async function saveItemToFirebase(item: Omit<CustomItem, 'id'>) {
+    return await db.collection(COLLECTIONS.AR_CONTENT).add(item);
 }
 
 const CATS: { id: UploadCategory; label: string; emoji: string; color: string }[] = [
@@ -45,12 +55,18 @@ export default function UploadScreen({ onBack }: Props) {
     const [name, setName] = useState('');
     const [pickedUri, setPickedUri] = useState<string | null>(null);
     const [adding, setAdding] = useState(false);
+    const [uploading, setUploading] = useState(false); // Global spinner
     const slideAnim = useRef(new Animated.Value(300)).current;
 
     useEffect(() => {
-        loadCustomItems().then(setItems);
+        refreshItems();
         Animated.spring(slideAnim, { toValue: 0, useNativeDriver: true, tension: 60 }).start();
     }, []);
+
+    const refreshItems = async () => {
+        const data = await loadCustomItems();
+        setItems(data);
+    };
 
     const pickImage = async () => {
         const res = await launchImageLibrary({ mediaType: 'photo', quality: 0.8, selectionLimit: 1 });
@@ -63,30 +79,55 @@ export default function UploadScreen({ onBack }: Props) {
         if (!name.trim()) { Alert.alert('Name required', 'Please enter a name.'); return; }
         if (!pickedUri) { Alert.alert('Image required', 'Please pick an image.'); return; }
 
-        const newItem: CustomItem = {
-            id: Date.now().toString(),
-            name: name.trim(),
-            category: selCat,
-            uri: pickedUri,
-            createdAt: new Date().toLocaleDateString(),
-        };
-        const updated = [newItem, ...items];
-        await saveItems(updated);
-        setItems(updated);
-        setName('');
-        setPickedUri(null);
-        setAdding(false);
-        Alert.alert('✅ Saved!', `"${newItem.name}" added to ${selCat} AR content.`);
+        setUploading(true);
+        try {
+            // 1. Upload to Firebase Storage
+            const filename = `${Date.now()}_${name.replace(/\s+/g, '_')}.jpg`;
+            const storagePath = `${STORAGE_FOLDERS.PREVIEWS}/${filename}`;
+            const reference = bucket.ref(storagePath);
+
+            await reference.putFile(pickedUri);
+            const downloadUrl = await reference.getDownloadURL();
+
+            // 2. Save Item to Firestore
+            const newItemMeta = {
+                name: name.trim(),
+                category: selCat,
+                uri: downloadUrl, // Global Cloud URL
+                createdAt: new Date().toISOString(),
+                modelUrl: downloadUrl, // For now, image is the model in simple AR
+                modelType: 'IMAGE_PLANE'
+            };
+
+            await saveItemToFirebase(newItemMeta);
+
+            // Success!
+            setAdding(false);
+            setName('');
+            setPickedUri(null);
+            Alert.alert('✅ Success!', `"${name}" is now live for all students.`);
+            refreshItems();
+        } catch (err) {
+            console.error("Upload Failed:", err);
+            Alert.alert('❌ Error', 'Could not upload to cloud. Please check your config.');
+        } finally {
+            setUploading(false);
+        }
     };
 
-    const deleteItem = async (id: string) => {
-        Alert.alert('Delete', 'Remove this AR item?', [
+    const deleteItem = async (id: string, storageUri?: string) => {
+        Alert.alert('Delete', 'Remove from cloud?', [
             { text: 'Cancel', style: 'cancel' },
             {
                 text: 'Delete', style: 'destructive', onPress: async () => {
-                    const updated = items.filter(i => i.id !== id);
-                    await saveItems(updated);
-                    setItems(updated);
+                    try {
+                        // Delete Firestore entry
+                        await db.collection(COLLECTIONS.AR_CONTENT).doc(id).delete();
+                        // (Optional) Delete from Storage if we have the reference
+                        refreshItems();
+                    } catch (err) {
+                        Alert.alert('Error', 'Delete failed.');
+                    }
                 }
             },
         ]);

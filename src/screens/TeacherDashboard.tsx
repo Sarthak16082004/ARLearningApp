@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 type Props = {
     onBack: () => void;
     onUpload: () => void;
+    onARUpload: () => void;    // NEW: navigate to 3D AR upload screen
     userName?: string;
 };
 
@@ -34,13 +35,13 @@ const STUDENTS = [
 const TASKS = [
     { emoji: '📋', label: 'Create New Lesson', color: '#6c63ff', desc: 'Add AR content for alphabets' },
     { emoji: '📝', label: 'Create Quiz', color: '#ff6584', desc: '10 MCQs for Grade 1' },
-    { emoji: '📤', label: 'Upload Material', color: '#43b89c', desc: 'PDF / Images / Videos' },
+    { emoji: '🧊', label: 'Upload AR Model', color: '#8b5cf6', desc: 'Upload .GLB/.GLTF 3D files for students' },
     { emoji: '✅', label: 'Assign Homework', color: '#f59e0b', desc: 'Assign to selected students' },
     { emoji: '📊', label: 'Generate Reports', color: '#8b5cf6', desc: 'Class performance PDF' },
     { emoji: '🔔', label: 'Send Notification', color: '#06b6d4', desc: 'Alert students & parents' },
 ];
 
-export default function TeacherDashboard({ onBack, onUpload, userName = 'Teacher' }: Props) {
+export default function TeacherDashboard({ onBack, onUpload, onARUpload, userName = 'Teacher' }: Props) {
     const insets = useSafeAreaInsets();
     const [activeTab, setActiveTab] = useState(0);
 
@@ -134,15 +135,25 @@ export default function TeacherDashboard({ onBack, onUpload, userName = 'Teacher
                 {activeTab === 2 && TASKS.map(task => (
                     <TouchableOpacity
                         key={task.label}
-                        style={styles.taskCard}
+                        style={[
+                            styles.taskCard,
+                            task.label === 'Upload AR Model' && {
+                                borderColor: '#8b5cf6',
+                                borderWidth: 2,
+                                backgroundColor: 'rgba(139,92,246,0.08)',
+                            },
+                        ]}
                         activeOpacity={0.8}
-                        onPress={task.label === 'Upload Material' ? onUpload : undefined}>
+                        onPress={task.label === 'Upload AR Model' ? onARUpload : undefined}>
                         <View style={[styles.taskIcon, { backgroundColor: task.color + '22' }]}>
                             <Text style={styles.taskEmoji}>{task.emoji}</Text>
                         </View>
                         <View style={styles.taskText}>
-                            <Text style={styles.taskLabel}>{task.label}</Text>
-                            <Text style={styles.taskDesc}>{task.label === 'Upload Material' ? 'Tap to manage AR content library' : task.desc}</Text>
+                            <Text style={[
+                                styles.taskLabel,
+                                task.label === 'Upload AR Model' && { color: '#c4b5fd' },
+                            ]}>{task.label}</Text>
+                            <Text style={styles.taskDesc}>{task.desc}</Text>
                         </View>
                         <Text style={[styles.arrow, { color: task.color }]}>›</Text>
                     </TouchableOpacity>

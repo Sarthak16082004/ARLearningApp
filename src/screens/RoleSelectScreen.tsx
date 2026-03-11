@@ -8,7 +8,7 @@ import {
     Dimensions,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Role } from '../../App';
+import { Role } from './LoginScreen';
 
 const { width } = Dimensions.get('window');
 

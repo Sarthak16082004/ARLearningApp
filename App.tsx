@@ -10,14 +10,20 @@ import TeacherDashboard from './src/screens/TeacherDashboard';
 import AdminDashboard from './src/screens/AdminDashboard';
 import CameraScreen from './src/screens/CameraScreen';
 import UploadScreen from './src/screens/UploadScreen';
+import ARUploadScreen from './src/screens/ARUploadScreen';
+import ARProjectsScreen from './src/screens/ARProjectsScreen';
 
-type Screen = 'login' | 'studentDash' | 'teacherDash' | 'adminDash' | 'camera' | 'upload';
+import ARViewScreen, { ARObject } from './src/screens/student/ARViewScreen';
+import AnimalListScreen from './src/screens/student/AnimalListScreen';
+
+type Screen = 'login' | 'studentDash' | 'teacherDash' | 'adminDash' | 'camera' | 'upload' | 'arUpload' | 'arProjects' | 'arViro' | 'animalList';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('login');
   const [role, setRole] = useState<Role | null>(null);
   const [userName, setUserName] = useState('');
   const [arCategory, setArCategory] = useState('alphabet');
+  const [selectedObject, setSelectedObject] = useState<ARObject | null>(null);
 
   // Smooth fade transition animation
   const opacity = useRef(new Animated.Value(1)).current;
@@ -66,19 +72,33 @@ export default function App() {
   const goToAR = (category: string) => {
     navigate(() => {
       setArCategory(category);
-      setScreen('camera');
+      if (category === 'animals') {
+        setScreen('animalList');
+      } else {
+        setScreen('camera');
+      }
     });
   };
 
   const goBackFromCamera = () => {
     navigate(() => {
+      setSelectedObject(null); // Clean up
       if (role === 'admin') setScreen('adminDash');
       else if (role === 'teacher') setScreen('teacherDash');
       else setScreen('studentDash');
     });
   };
 
+  const goToViroAR = (object: ARObject) => {
+    navigate(() => {
+      setSelectedObject(object);
+      setScreen('arViro');
+    });
+  };
+
   const goToUpload = () => navigate(() => setScreen('upload'));
+  const goToARUpload = () => navigate(() => setScreen('arUpload'));
+  const goToARProjects = () => navigate(() => setScreen('arProjects'));
 
   const goBackFromUpload = () => {
     navigate(() => {
@@ -86,6 +106,9 @@ export default function App() {
       else setScreen('teacherDash');
     });
   };
+
+  const goBackFromARUpload = () => goBackFromUpload();
+  const goBackFromARProjects = () => navigate(() => setScreen('studentDash'));
 
   return (
     <SafeAreaProvider>
@@ -99,6 +122,7 @@ export default function App() {
           <StudentDashboard
             onBack={handleLogout}
             onStartAR={goToAR}
+            onViewProjects={goToARProjects}
             userName={userName}
           />
         )}
@@ -107,6 +131,7 @@ export default function App() {
           <TeacherDashboard
             onBack={handleLogout}
             onUpload={goToUpload}
+            onARUpload={goToARUpload}
             userName={userName}
           />
         )}
@@ -128,6 +153,31 @@ export default function App() {
 
         {screen === 'upload' && (
           <UploadScreen onBack={goBackFromUpload} />
+        )}
+
+        {screen === 'arUpload' && (
+          <ARUploadScreen onBack={goBackFromARUpload} teacherName={userName} />
+        )}
+
+        {screen === 'arProjects' && (
+          <ARProjectsScreen
+            onBack={goBackFromARProjects}
+            onSelectProject={goToViroAR}
+          />
+        )}
+
+        {screen === 'arViro' && selectedObject && (
+          <ARViewScreen
+            object={selectedObject}
+            onBack={goBackFromCamera}
+          />
+        )}
+
+        {screen === 'animalList' && (
+          <AnimalListScreen
+            onBack={goBackFromCamera}
+            onSelectAnimal={goToViroAR}
+          />
         )}
 
       </Animated.View>
