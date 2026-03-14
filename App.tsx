@@ -14,9 +14,9 @@ import ARUploadScreen from './src/screens/ARUploadScreen';
 import ARProjectsScreen from './src/screens/ARProjectsScreen';
 
 import ARViewScreen, { ARObject } from './src/screens/student/ARViewScreen';
-import AnimalListScreen from './src/screens/student/AnimalListScreen';
+import CategoryListScreen from './src/screens/student/CategoryListScreen';
 
-type Screen = 'login' | 'studentDash' | 'teacherDash' | 'adminDash' | 'camera' | 'upload' | 'arUpload' | 'arProjects' | 'arViro' | 'animalList';
+type Screen = 'login' | 'studentDash' | 'teacherDash' | 'adminDash' | 'camera' | 'upload' | 'arUpload' | 'arProjects' | 'arViro' | 'categoryList';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('login');
@@ -72,11 +72,8 @@ export default function App() {
   const goToAR = (category: string) => {
     navigate(() => {
       setArCategory(category);
-      if (category === 'animals') {
-        setScreen('animalList');
-      } else {
-        setScreen('camera');
-      }
+      // All categories now first go to the unified CategoryListScreen
+      setScreen('categoryList');
     });
   };
 
@@ -173,10 +170,12 @@ export default function App() {
           />
         )}
 
-        {screen === 'animalList' && (
-          <AnimalListScreen
+        {screen === 'categoryList' && (
+          <CategoryListScreen
+            category={arCategory}
             onBack={goBackFromCamera}
-            onSelectAnimal={goToViroAR}
+            onStartCamera={() => navigate(() => setScreen('camera'))}
+            onSelectModel={goToViroAR}
           />
         )}
 

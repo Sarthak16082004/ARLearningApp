@@ -12,7 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 type Props = {
     onBack: () => void;
     onStartAR: (category: string) => void;
-    onViewProjects: () => void;
+    onViewProjects?: () => void; // Keeping prop optional to avoid breaking App.tsx if still passed
     userName?: string;
 };
 
@@ -112,23 +112,7 @@ export default function StudentDashboard({ onBack, onStartAR, onViewProjects, us
                             </TouchableOpacity>
                         ))}
 
-                        {/* Teacher Projects section */}
-                        <Text style={[styles.sectionTitle, { marginTop: 20 }]}>🧊 Teacher AR Projects</Text>
-                        <TouchableOpacity
-                            style={[styles.lessonCard, { borderColor: 'rgba(139,92,246,0.3)' }]}
-                            onPress={onViewProjects}
-                            activeOpacity={0.8}>
-                            <View style={[styles.lessonIcon, { backgroundColor: '#8b5cf622' }]}>
-                                <Text style={styles.lessonEmoji}>🌐</Text>
-                            </View>
-                            <View style={styles.lessonText}>
-                                <Text style={styles.lessonLabel}>Browse 3D Projects</Text>
-                                <Text style={styles.lessonSub}>View models uploaded by your teacher</Text>
-                            </View>
-                            <View style={[styles.startBtn, { backgroundColor: '#8b5cf6' }]}>
-                                <Text style={styles.startBtnText}>Open</Text>
-                            </View>
-                        </TouchableOpacity>
+
                     </>
                 ) : (
                     <>

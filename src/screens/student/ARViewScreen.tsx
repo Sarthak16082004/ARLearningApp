@@ -14,6 +14,7 @@ import {
     ViroAmbientLight,
     ViroSpotLight,
     ViroNode,
+    ViroImage,
 } from '@reactvision/react-viro';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -22,7 +23,7 @@ export type ARObject = {
     name: string;
     category: string;
     modelUrl: string;
-    modelType?: 'GLB' | 'GLTF' | 'OBJ';
+    modelType?: 'GLB' | 'GLTF' | 'OBJ' | 'IMAGE_PLANE';
 };
 
 type Props = {
@@ -58,14 +59,26 @@ const MainARScene = (props: any) => {
                 dragType="FixedToWorld"
                 onDrag={() => { }} // Enables drag/repositioning
             >
-                <Viro3DObject
-                    source={{ uri: object.modelUrl }}
-                    type={object.modelType || 'GLB'}
-                    scale={[0.1, 0.1, 0.1]} // Default scale, can be adjusted
-                    onLoadStart={onModelLoadStart}
-                    onLoadEnd={onModelLoadEnd}
-                    onError={onModelError}
-                />
+                {object.modelType === 'IMAGE_PLANE' ? (
+                    <ViroImage
+                        source={{ uri: object.modelUrl }}
+                        height={0.5}
+                        width={0.5}
+                        rotation={[-90, 0, 0]} // Face upwards/upright depending on use case, let's keep it upright for AR usually -90,0,0
+                        onLoadStart={onModelLoadStart}
+                        onLoadEnd={onModelLoadEnd}
+                        onError={onModelError}
+                    />
+                ) : (
+                    <Viro3DObject
+                        source={{ uri: object.modelUrl }}
+                        type={object.modelType || 'GLB'}
+                        scale={[0.1, 0.1, 0.1]} // Default scale, can be adjusted
+                        onLoadStart={onModelLoadStart}
+                        onLoadEnd={onModelLoadEnd}
+                        onError={onModelError}
+                    />
+                )}
             </ViroNode>
         </ViroARScene>
     );
