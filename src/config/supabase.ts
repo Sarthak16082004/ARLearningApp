@@ -19,22 +19,28 @@ export async function uploadToSupabase(
     onProgress?: (pct: number) => void,
 ): Promise<string> {
 
-    // 1. Read the file as a Blob via fetch
+    // In React Native, fetch(content://...) usually fails.
+    // Instead, we construct an object that the Supabase client handles natively for React Native!
     onProgress?.(10);
-    const response = await fetch(fileUri);
-    const blob = await response.blob();
-    onProgress?.(40);
-
+    
+    // React Native's specific file object structure
+    const fileForSupabase = {
+        uri: fileUri,
+        name: fileName,
+        type: fileName.endsWith('.glb') ? 'model/gltf-binary' : 
+              fileName.endsWith('.gltf') ? 'model/gltf+json' : 
+              fileName.endsWith('.jpg') ? 'image/jpeg' : 'application/octet-stream',
+    };
+    
     // 2. Build a unique storage path
     const storagePath = `${Date.now()}_${fileName.replace(/\s+/g, '_')}`;
+
+    onProgress?.(40);
 
     // 3. Upload to Supabase Storage
     const { data, error } = await supabase.storage
         .from(STORAGE_BUCKET)
-        .upload(storagePath, blob, {
-            contentType: blob.type || 'model/gltf-binary',
-            upsert: false,
-        });
+        .upload(storagePath, fileForSupabase as any);
 
     onProgress?.(85);
 

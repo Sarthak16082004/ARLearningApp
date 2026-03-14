@@ -7,7 +7,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { launchImageLibrary } from 'react-native-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { db, bucket, COLLECTIONS, STORAGE_FOLDERS } from '../config/firebase';
+import { supabase, uploadToSupabase } from '../config/supabase';
 
 export type UploadCategory = 'alphabet' | 'number' | 'shape' | 'animal';
 export type CustomItem = {
@@ -19,24 +19,22 @@ export type CustomItem = {
     modelType?: string; // Optional if we add 3D support later
 };
 
-// --- Firebase Data Fetching ---
+// --- Supabase Data Fetching ---
 export async function loadCustomItems(): Promise<CustomItem[]> {
     try {
-        const snapshot = await db.collection(COLLECTIONS.AR_CONTENT)
-            .orderBy('createdAt', 'desc')
-            .get();
-        return snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        })) as CustomItem[];
+        const { data, error } = await supabase.from('ar_content')
+            .select('*')
+            .order('createdAt', { ascending: false });
+        if (error) throw error;
+        return (data || []) as CustomItem[];
     } catch (err) {
-        console.error("Firebase Load Error:", err);
+        console.error("Supabase Load Error:", err);
         return [];
     }
 }
 
-async function saveItemToFirebase(item: Omit<CustomItem, 'id'>) {
-    return await db.collection(COLLECTIONS.AR_CONTENT).add(item);
+async function saveItemToSupabase(item: Omit<CustomItem, 'id'>) {
+    return await supabase.from('ar_content').insert([item]);
 }
 
 const CATS: { id: UploadCategory; label: string; emoji: string; color: string }[] = [
@@ -81,15 +79,11 @@ export default function UploadScreen({ onBack }: Props) {
 
         setUploading(true);
         try {
-            // 1. Upload to Firebase Storage
+            // 1. Upload to Supabase Storage
             const filename = `${Date.now()}_${name.replace(/\s+/g, '_')}.jpg`;
-            const storagePath = `${STORAGE_FOLDERS.PREVIEWS}/${filename}`;
-            const reference = bucket.ref(storagePath);
+            const downloadUrl = await uploadToSupabase(pickedUri, filename);
 
-            await reference.putFile(pickedUri);
-            const downloadUrl = await reference.getDownloadURL();
-
-            // 2. Save Item to Firestore
+            // 2. Save Item to Supabase
             const newItemMeta = {
                 name: name.trim(),
                 category: selCat,
@@ -99,7 +93,7 @@ export default function UploadScreen({ onBack }: Props) {
                 modelType: 'IMAGE_PLANE'
             };
 
-            await saveItemToFirebase(newItemMeta);
+            await saveItemToSupabase(newItemMeta);
 
             // Success!
             setAdding(false);
@@ -121,9 +115,8 @@ export default function UploadScreen({ onBack }: Props) {
             {
                 text: 'Delete', style: 'destructive', onPress: async () => {
                     try {
-                        // Delete Firestore entry
-                        await db.collection(COLLECTIONS.AR_CONTENT).doc(id).delete();
-                        // (Optional) Delete from Storage if we have the reference
+                        // Delete Supabase entry
+                        await supabase.from('ar_content').delete().eq('id', id);
                         refreshItems();
                     } catch (err) {
                         Alert.alert('Error', 'Delete failed.');

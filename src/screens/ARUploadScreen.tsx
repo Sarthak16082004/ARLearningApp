@@ -1,6 +1,6 @@
 /**
  * ARUploadScreen.tsx
- * Teacher-facing screen to upload 3D models (.glb/.gltf/.obj) to Firebase.
+ * Teacher-facing screen to upload 3D models (.glb/.gltf/.obj) to Supabase.
  * Features:
  *  - File picker via react-native-document-picker
  *  - Real-time upload progress bar
@@ -128,7 +128,7 @@ export default function ARUploadScreen({ onBack, teacherName = 'Teacher' }: Prop
 
             setPickedFile({
                 name,
-                uri: result.uri,   // content:// URI — works with Firebase putFile
+                uri: result.uri,   // content:// URI — works with Supabase upload
                 size: result.size ?? undefined,
             });
 
@@ -177,7 +177,7 @@ export default function ARUploadScreen({ onBack, teacherName = 'Teacher' }: Prop
             loadProjects();
         } catch (err) {
             console.error('Upload error:', err);
-            Alert.alert('❌ Upload Failed', 'Check your internet connection and Firebase Storage rules.');
+            Alert.alert('❌ Upload Failed', `Error: ${err instanceof Error ? err.message : String(err)}\nCheck connection & rules.`);
         } finally {
             setUploading(false);
         }

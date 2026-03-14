@@ -9,7 +9,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ARObject } from './ARViewScreen';
 
-import { db, COLLECTIONS } from '../../config/firebase';
+import { supabase } from '../../config/supabase';
 
 const STATIC_ANIMALS: ARObject[] = [
     {
@@ -46,15 +46,10 @@ export default function AnimalListScreen({ onBack, onSelectAnimal }: Props) {
 
     React.useEffect(() => {
         // Fetch new animals from cloud
-        const unsubscribe = db.collection(COLLECTIONS.AR_CONTENT)
-            .where('category', '==', 'animal')
-            .onSnapshot(snapshot => {
-                const cloudAnimals = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                })) as ARObject[];
-
-                // Merge static and cloud (avoid duplicates by name if any)
+        const fetchAnimals = async () => {
+            const { data } = await supabase.from('ar_content').select('*').eq('category', 'animal');
+            if (data) {
+                const cloudAnimals = data as ARObject[];
                 const merged = [...STATIC_ANIMALS];
                 cloudAnimals.forEach(ca => {
                     if (!merged.find(m => m.name.toLowerCase() === ca.name.toLowerCase())) {
@@ -62,9 +57,11 @@ export default function AnimalListScreen({ onBack, onSelectAnimal }: Props) {
                     }
                 });
                 setAnimals(merged);
-            });
+            }
+        };
 
-        return () => unsubscribe();
+        fetchAnimals();
+        return () => {};
     }, []);
 
     return (

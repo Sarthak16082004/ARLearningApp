@@ -1,7 +1,7 @@
 /**
  * ARProjectsScreen.tsx
  * Student-facing screen: lists teacher-uploaded AR projects in real-time.
- * Selecting a project opens the AR viewer with the Firebase model URL.
+ * Selecting a project opens the AR viewer with the Supabase model URL.
  */
 import React, { useState, useEffect } from 'react';
 import {

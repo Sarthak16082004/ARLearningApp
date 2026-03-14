@@ -1,10 +1,9 @@
 /**
  * arProjectService.ts
  * - File Storage  : Supabase Storage (free, no credit card)
- * - Metadata DB   : Firebase Firestore (free)
+ * - Metadata DB   : Supabase DB (free)
  */
-import firestore from '@react-native-firebase/firestore';
-import { uploadToSupabase, deleteFromSupabase } from '../config/supabase';
+import { supabase, uploadToSupabase, deleteFromSupabase } from '../config/supabase';
 
 export const COLLECTION = 'ar_projects';
 
@@ -24,7 +23,7 @@ export interface ARProject {
     fileSize?: number;
 }
 
-// ─── FULL PIPELINE (Upload to Supabase → Save metadata to Firestore) ──────────
+// ─── FULL PIPELINE (Upload to Supabase → Save metadata to Supabase DB) ──────────
 export async function uploadAndSaveProject(
     params: {
         localFilePath: string;
@@ -46,8 +45,8 @@ export async function uploadAndSaveProject(
         onProgress,
     );
 
-    // 2. Save metadata to Firestore
-    await firestore().collection(COLLECTION).add({
+    // 2. Save metadata to Supabase DB
+    const { error } = await supabase.from(COLLECTION).insert([{
         title: params.title,
         description: params.description,
         category: params.category,
@@ -56,7 +55,12 @@ export async function uploadAndSaveProject(
         teacherName: params.teacherName,
         createdAt: new Date().toISOString(),
         fileSize: params.fileSize ?? null,
-    });
+    }]);
+
+    if(error){
+        console.error("Error saving DB:", error);
+        throw error;
+    }
 }
 
 // ─── DELETE PROJECT ────────────────────────────────────────────────────────────
@@ -64,8 +68,8 @@ export async function deleteProject(
     projectId: string,
     modelUrl: string,
 ): Promise<void> {
-    // Delete Firestore document
-    await firestore().collection(COLLECTION).doc(projectId).delete();
+    // Delete Supabase document
+    await supabase.from(COLLECTION).delete().eq('id', projectId);
 
     // Delete file from Supabase Storage
     try {
@@ -80,36 +84,41 @@ export function subscribeToProjects(
     onUpdate: (projects: ARProject[]) => void,
     category?: ARCategory,
 ): () => void {
-    let query: any = firestore()
-        .collection(COLLECTION)
-        .orderBy('createdAt', 'desc');
-
+    
+    // Initial fetch
+    let query = supabase.from(COLLECTION).select('*').order('createdAt', { ascending: false });
     if (category) {
-        query = query.where('category', '==', category);
+        query = query.eq('category', category);
     }
-
-    return query.onSnapshot((snapshot: any) => {
-        const projects = snapshot.docs.map((doc: any) => ({
-            id: doc.id,
-            ...doc.data(),
-        })) as ARProject[];
-        onUpdate(projects);
+    
+    query.then(({ data }) => {
+        if(data) onUpdate(data as ARProject[]);
     });
+
+    // Sub for changes
+    const channel = supabase
+        .channel('public:ar_projects')
+        .on('postgres_changes', { event: '*', schema: 'public', table: COLLECTION }, payload => {
+            // Re-fetch on any change for simplicity
+            query.then(({ data }) => {
+                if(data) onUpdate(data as ARProject[]);
+            });
+        })
+        .subscribe();
+
+    return () => {
+        supabase.removeChannel(channel);
+    };
 }
 
 // ─── FETCH ONCE (teacher management) ──────────────────────────────────────────
 export async function fetchProjects(category?: ARCategory): Promise<ARProject[]> {
-    let query: any = firestore()
-        .collection(COLLECTION)
-        .orderBy('createdAt', 'desc');
+    let query = supabase.from(COLLECTION).select('*').order('createdAt', { ascending: false });
 
     if (category) {
-        query = query.where('category', '==', category);
+        query = query.eq('category', category);
     }
 
-    const snapshot = await query.get();
-    return snapshot.docs.map((doc: any) => ({
-        id: doc.id,
-        ...doc.data(),
-    })) as ARProject[];
+    const { data } = await query;
+    return (data || []) as ARProject[];
 }
