@@ -2,21 +2,21 @@ package com.arlearningapp
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
-import com.facebook.react.defaults.DefaultReactActivityDelegate
 
 class MainActivity : ReactActivity() {
 
   /**
-   * Returns the name of the main component registered from JavaScript. This is used to schedule
-   * rendering of the component.
+   * Returns the name of the main component registered from JavaScript.
    */
   override fun getMainComponentName(): String = "ARLearningApp"
 
   /**
-   * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]
-   * which allows you to enable New Architecture with a single boolean flags [fabricEnabled]
+   * Use a plain ReactActivityDelegate to completely avoid loading any New Architecture
+   * JNI libraries (libreact_featureflagsjni.so etc.) which are not bundled when
+   * newArchEnabled=false.  DefaultReactActivityDelegate unconditionally triggers
+   * ReactNativeNewArchitectureFeatureFlags.enableBridgelessArchitecture() even when
+   * fabricEnabled=false, causing a fatal UnsatisfiedLinkError on startup.
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
-      DefaultReactActivityDelegate(this, mainComponentName, false)
+      ReactActivityDelegate(this, mainComponentName)
 }

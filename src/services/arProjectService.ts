@@ -38,7 +38,7 @@ export async function uploadAndSaveProject(
     onProgress?: (percent: number) => void,
 ): Promise<void> {
 
-    // 1. Upload file to Supabase Storage (free, no card)
+    // 1. Upload file to Supabase Storage
     const modelUrl = await uploadToSupabase(
         params.localFilePath,
         params.fileName,
@@ -50,15 +50,15 @@ export async function uploadAndSaveProject(
         title: params.title,
         description: params.description,
         category: params.category,
-        modelUrl,                   // Supabase public URL
+        modelUrl,
         modelType: params.modelType,
         teacherName: params.teacherName,
         createdAt: new Date().toISOString(),
         fileSize: params.fileSize ?? null,
     }]);
 
-    if(error){
-        console.error("Error saving DB:", error);
+    if (error) {
+        console.error('Error saving DB:', error);
         throw error;
     }
 }
@@ -84,24 +84,27 @@ export function subscribeToProjects(
     onUpdate: (projects: ARProject[]) => void,
     category?: ARCategory,
 ): () => void {
-    
+
+    // Helper to always build a fresh category-filtered query
+    const buildQuery = () => {
+        let q = supabase.from(COLLECTION).select('*').order('createdAt', { ascending: false });
+        if (category) {
+            q = q.eq('category', category);
+        }
+        return q;
+    };
+
     // Initial fetch
-    let query = supabase.from(COLLECTION).select('*').order('createdAt', { ascending: false });
-    if (category) {
-        query = query.eq('category', category);
-    }
-    
-    query.then(({ data }) => {
-        if(data) onUpdate(data as ARProject[]);
+    buildQuery().then(({ data }) => {
+        if (data) { onUpdate(data as ARProject[]); }
     });
 
-    // Sub for changes
+    // Subscribe to realtime changes — rebuild query on each event so filter stays applied
     const channel = supabase
         .channel('public:ar_projects')
-        .on('postgres_changes', { event: '*', schema: 'public', table: COLLECTION }, payload => {
-            // Re-fetch on any change for simplicity
-            query.then(({ data }) => {
-                if(data) onUpdate(data as ARProject[]);
+        .on('postgres_changes', { event: '*', schema: 'public', table: COLLECTION }, () => {
+            buildQuery().then(({ data }) => {
+                if (data) { onUpdate(data as ARProject[]); }
             });
         })
         .subscribe();

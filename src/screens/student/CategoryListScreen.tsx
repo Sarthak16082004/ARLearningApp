@@ -36,11 +36,16 @@ export default function CategoryListScreen({ category, onBack, onStartCamera, on
             try {
                 // Fetch 3D Projects uploaded by teachers
                 const { data: projectData } = await supabase.from('ar_projects').select('*').eq('category', category);
-                // Fetch 2D AR Content uploaded by teachers
-                const { data: contentData } = await supabase.from('ar_content').select('*').eq('category', category);
+                // Fetch 2D AR Content (table may not exist yet — safe to skip on error)
+                let contentData: any[] | null = null;
+                try {
+                    const res = await supabase.from('ar_content').select('*').eq('category', category);
+                    contentData = res.data;
+                } catch { /* ar_content table not created yet */ }
+
 
                 let fetchedModels: ARObject[] = [];
-                if (category === 'animals') fetchedModels = [...STATIC_ANIMALS];
+                if (category === 'animals') { fetchedModels = [...STATIC_ANIMALS]; }
 
                 if (projectData) {
                     projectData.forEach(p => {
@@ -63,7 +68,7 @@ export default function CategoryListScreen({ category, onBack, onStartCamera, on
                                 name: c.name,
                                 category: c.category,
                                 modelUrl: c.uri || c.modelUrl,
-                                modelType: c.modelType || 'IMAGE_PLANE', // Image Plane by default for 2D
+                                modelType: c.modelType || 'IMAGE_PLANE',
                             });
                         }
                     });
@@ -77,6 +82,7 @@ export default function CategoryListScreen({ category, onBack, onStartCamera, on
         };
         fetchData();
     }, [category]);
+
 
     return (
         <View style={[styles.container, { paddingTop: insets.top }]}>
