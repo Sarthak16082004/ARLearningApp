@@ -1,79 +1,85 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ARLearn: Immersive 3D Learning Platform
 
-# Getting Started
+![Splash](./assets/readme/splash.jpeg)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+ARLearn is a robust educational platform designed to bridge the gap between traditional learning and modern technology. Using **Augmented Reality (AR)**, it allows students to visualize complex 3D models in their own environment, making education interactive, engaging, and fun.
 
-## Step 1: Start the Metro Server
+---
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 🚀 App Walkthrough
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### 🔑 Unified Authentication
+The app provides a secure, role-based entry point for Students, Teachers, and Admins.
 
-```bash
-# using npm
-npm start
+| Student Login | Teacher Login | Admin Login |
+| :---: | :---: | :---: |
+| ![Student Login](./assets/readme/login_student.jpeg) | ![Teacher Login](./assets/readme/login_teacher.jpeg) | ![Admin Login](./assets/readme/login_admin.jpeg) |
 
-# OR using Yarn
-yarn start
-```
+---
 
-## Step 2: Start your Application
+### 🎓 Student Experience
+Students can browse curated educational categories and bring models to life in AR.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+#### **Home & Exploration**
+The home screen features featured categories like Animals, Alphabets, Numbers, and Shapes.
 
-### For Android
+| Home Screen | Category View |
+| :---: | :---: |
+| ![Student Home](./assets/readme/student_home.jpeg) | ![Category Detail](./assets/readme/student_category.jpeg) |
 
-```bash
-# using npm
-npm run android
+#### **AR Live View**
+The core experience: visualize 3D models in real-time with live tracking and gesture controls.
 
-# OR using Yarn
-yarn android
-```
+![AR View](./assets/readme/student_ar_view.jpeg)
 
-### For iOS
+---
 
-```bash
-# using npm
-npm run ios
+### 🛠️ Administration Portal
+A comprehensive suite for managing schools, users, and educational content.
 
-# OR using Yarn
-yarn ios
-```
+#### **Management Modules**
+Admins can manage schools, register new institutions, and organize classes.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+| Schools Management | Add New School | Classes Management |
+| :---: | :---: | :---: |
+| ![Admin Schools](./assets/readme/admin_schools.jpeg) | ![Add School](./assets/readme/admin_add_school.jpeg) | ![Admin Classes](./assets/readme/admin_classes.jpeg) |
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+#### **User & Model Control**
+Detailed control over teachers within schools and the global library of AR models.
 
-## Step 3: Modifying your App
+| Teacher Management | AR Model Library |
+| :---: | :---: |
+| ![Admin Teachers](./assets/readme/admin_teachers.jpeg) | ![Admin Models](./assets/readme/admin_models.jpeg) |
 
-Now that you have successfully run the app, let's modify it.
+---
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## 🛠️ Technical Overview
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+- **Frontend:** React Native (Cross-platform)
+- **AR Engine:** Viro AR / ViroReact
+- **Backend:** Supabase (PostgreSQL, Auth, Storage)
+- **State Management:** React Context API
+- **Navigation:** React Navigation (Stack)
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+## 💻 Installation & Setup
 
-### Now what?
+1. **Clone the repository**
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Setup Environment:**
+   Configure your `.env` or `src/services/supabase.ts` with your Supabase URL and Anon Key.
+4. **Run the app:**
+   ```bash
+   # Start Metro
+   npm start
+   
+   # Run on Android
+   npm run android
+   ```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+*Empowering Education with Augmented Reality.*
