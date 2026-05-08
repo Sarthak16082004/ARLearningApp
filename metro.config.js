@@ -1,24 +1,16 @@
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
 /**
  * Metro configuration
- * https://reactnative.dev/docs/metro
+ * https://facebook.github.io/metro/docs/configuration
  *
- * @type {import('@react-native/metro-config').MetroConfig}
+ * @type {import('metro-config').MetroConfig}
  */
-
 const defaultConfig = getDefaultConfig(__dirname);
-
 const config = {
-    resolver: {
-        blockList: [
-            // Block vision-camera's transient C++ CMake build dirs.
-            // Metro's FallbackWatcher (used on Windows) throws ENOENT
-            // when it tries to watch these short-lived temp directories.
-            /node_modules[/\\]react-native-vision-camera[/\\]android[/\\]\.cxx[/\\].*/,
-            /node_modules[/\\]react-native-vision-camera[/\\]android[/\\]build[/\\].*/,
-        ],
-    },
+  resolver: {
+    assetExts: [...defaultConfig.resolver.assetExts, 'obj', 'mtl', 'JPG', 'vrx', 'hdr', 'gltf', 'glb', 'bin', 'arobject', 'gif'],
+  },
 };
 
 module.exports = mergeConfig(defaultConfig, config);

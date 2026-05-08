@@ -1,0 +1,100 @@
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at com.facebook.systrace.Systrace.traceSection(Systrace.kt:35)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at com.facebook.react.ReactActivityDelegate.onCreate(ReactActivityDelegate.java:132)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at com.facebook.react.ReactActivity.onCreate(ReactActivity.java:61)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.Activity.performCreate(Activity.java:9216)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.Activity.performCreate(Activity.java:9172)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1538)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4427)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4666)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:112)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem(TransactionExecutor.java:186)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.servertransaction.TransactionExecutor.executeTransactionItems(TransactionExecutor.java:112)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:84)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2908)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:337)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9631)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-19 11:42:46.232  6026  6026 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: Process: com.arlearningapp, PID: 6026
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: java.lang.UnsatisfiedLinkError: dlopen failed: library "libreact_featureflagsjni.so" not found
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at java.lang.Runtime.loadLibrary0(Runtime.java:1097)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at java.lang.Runtime.loadLibrary0(Runtime.java:1019)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at java.lang.System.loadLibrary(System.java:1765)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.soloader.nativeloader.SystemDelegate.loadLibrary(SystemDelegate.java:24)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.soloader.nativeloader.NativeLoader.loadLibrary(NativeLoader.java:52)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.soloader.nativeloader.NativeLoader.loadLibrary(NativeLoader.java:30)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.soloader.SoLoader.loadLibrary(SoLoader.java:812)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxInterop.<clinit>(ReactNativeFeatureFlagsCxxInterop.kt:28)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlagsCxxAccessor.enableBridgelessArchitecture(ReactNativeFeatureFlagsCxxAccessor.kt:229)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.internal.featureflags.ReactNativeFeatureFlags.enableBridgelessArchitecture(ReactNativeFeatureFlags.kt:115)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.internal.featureflags.ReactNativeNewArchitectureFeatureFlags.enableBridgelessArchitecture(ReactNativeNewArchitectureFeatureFlags.kt:35)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.ReactActivityDelegate.lambda$onCreate$0(ReactActivityDelegate.java:149)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.ReactActivityDelegate.$r8$lambda$HPdXfLmAU1y4Wc1XbwAHziPP2WA(Unknown Source:0)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.ReactActivityDelegate$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.systrace.Systrace.traceSection(Systrace.kt:35)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.ReactActivityDelegate.onCreate(ReactActivityDelegate.java:132)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.facebook.react.ReactActivity.onCreate(ReactActivity.java:61)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.Activity.performCreate(Activity.java:9216)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.Activity.performCreate(Activity.java:9172)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1538)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4427)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4666)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:112)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.servertransaction.TransactionExecutor.executeNonLifecycleItem(TransactionExecutor.java:186)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.servertransaction.TransactionExecutor.executeTransactionItems(TransactionExecutor.java:112)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:84)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2908)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.os.Handler.dispatchMessage(Handler.java:107)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.os.Looper.loopOnce(Looper.java:249)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.os.Looper.loop(Looper.java:337)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at android.app.ActivityThread.main(ActivityThread.java:9631)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at java.lang.reflect.Method.invoke(Native Method)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+03-19 11:42:46.237  6871  7166 E JavaExceptionHandler: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+03-19 11:42:46.261  4192  5188 E ActivityManagerWrapper: get all recent tasks force including 359
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper: getRecentTasksForceIncludingTaskIdIfValid: getRecentTasks: size=8
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=375   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.arlearningapp/com.arlearningapp.MainActivity} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=359   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.google.android.apps.nbu.paisa.user/com.google.nbu.paisa.flutter.gpay.app.LauncherActivity} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=341   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.whatsapp/com.whatsapp.Main} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=353   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.contacts/com.android.contacts.activities.TwelveKeyDialer} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=333   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.android.settings/com.android.settings.MainSettings} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=331   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=335544320 cmp=ComponentInfo{com.android.settings/com.android.settings.Settings$TetherSettingsActivity} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=334   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.VIEW flag=335552512 cmp=ComponentInfo{com.android.chrome/org.chromium.chrome.browser.ChromeTabbedActivity} }
+03-19 11:42:46.274  4192  5188 E ActivityManagerWrapper:  mainTaskId=330   userId=0   windowMode=1   baseIntent=Intent { act=android.intent.action.MAIN flag=270532608 cmp=ComponentInfo{com.instagram.android/com.instagram.android.activity.MainTabActivity} }
+03-19 11:42:46.294   996  6537 E SmartAppAssistant: SystemUtil get  applicationInfo fail
+03-19 11:42:46.305  2579  3803 E ProcessManager: error write exception log
+03-19 11:42:46.323  1542  1542 E vendor.qti.hardware.perf-hal-service: ExtendedPerfBoost: extended_perfboost_verification() 738: Ok, set boost params. hintid=4226 hinttype=1 prio=2, clientpid=2579 packagename=com.mi.android.globallauncher params=boost:1 cpu0:1804800 cpu4:2496000 cpu7:2592000 cpumask:ff
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-OPTSHANDLER: Perflock resource /sys/class/devfreq/soc:qcom,cpubw/max_freq not supported
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [6, 6]
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-OPTSHANDLER: Perflock resource /sys/class/devfreq/soc:qcom,cpubw/min_freq not supported
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [6, 0]
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-OPTSHANDLER: Perflock resource /sys/class/devfreq/soc:qcom,cpu0-llcc-ddr-lat/min_freq not supported
+03-19 11:42:46.324  1542  1578 E ANDR-PERF-RESOURCEQS: Failed to apply optimization [13, 12]
+03-19 11:42:46.338  4720  4720 E onWindowDecorRectChanged: start size:0
+03-19 11:42:46.341  4192  4192 E Launcher.application: setClickAppWaitForCallback = false
+03-19 11:42:46.343  2579  7729 E WindowManager:  source = Task{ea104a0 #375 type=standard A=10222:com.arlearningapp} excludeMiuiNavBar = true excludeMiuiStatusBar = true excludeIme = false excludeNavBar = false miuiNavSurfaceControl = Surface(name=Miui Fake NavBar#51)/@0xde6154c miuiStatusSurfaceControl = Surface(name=Miui Fake StatusBar#50)/@0xd14f623
+03-19 11:42:46.355  2579  4045 E BarFollowAnimation: isHomeDark = 0 currentDark = 0 isFullGesture = true
+03-19 11:42:46.355  2579  4045 E BarFollowAnimation: isHomeDark = 0 currentDark = 0 isFullGesture = true
+03-19 11:42:46.365  5983  6276 E BluetoothAdapterService: getActiveDevices: A2dpService is null
+03-19 11:42:46.367  4192  4761 E WindowTransitionCompat: IRemoteTransition mergeAnimation isClosingType = true, hasHome = true
+03-19 11:42:46.367  4192  4761 E WindowTransitionCompat: before wrap app
+03-19 11:42:46.367  4192  4761 E WindowTransitionCompat: before wrap wallpaper
+03-19 11:42:46.369  5983  6276 E BluetoothAdapterService: getActiveDevices: HeadsetService is null
+03-19 11:42:46.369  5983  6276 E BluetoothAdapterService: getActiveDevices: LeAudioService is null
+03-19 11:42:46.371  4192  4899 E Launcher: mFsGestureStatusRefreshRunnable:run usingFsGesture=true   show=true   focus=true   pause=false
+03-19 11:42:46.374  4192  4761 E WindowTransitionCompat: IRemoteTransition mergeAnimation end
+03-19 11:42:46.375  4192  4192 E WindowAnimParamsProvider: getWindowTargetBounds    bounds=Rect(0, 0 - 1080, 2400)
+03-19 11:42:46.377  4192  4899 E StateNotifyUtils: sendFsStateBroadCast state=closeWindow   channel=navigation_bar   packageName=
+03-19 11:42:46.385  4192  4192 E ClipAnimationHelper: updateSourceStack  mSourceInsets=Rect(0, 0 - 0, 0), mSourceStackBounds=Rect(0, 0 - 1080, 2400)
+03-19 11:42:46.385  4192  4192 E ClipAnimationHelper: updateHomeStack  mSourceInsets=Rect(0, 0 - 0, 0), mHomeStackBounds=Rect(0, 0 - 1080, 2400)
+03-19 11:42:46.385  4192  4192 E ClipAnimationHelper: updateTargetRect  mSourceRect=RectF(0.0, 0.0, 1080.0, 2400.0)   mTargetRect=RectF(0.0, 0.0, 1080.0, 2400.0)   mSourceWindowClipInsets=RectF(0.0, 0.0, 0.0, 0.0)   mHomeStackBounds=Rect(0, 0 - 1080, 2400)   targetRect=Rect(0, 0 - 1080, 2400)
+03-19 11:42:46.386  4192  4192 E MultiSpringDynamicAnimation7e44fb9: ERROR Not Found Bundle SurfaceExtAlpha
+03-19 11:42:46.386  4192  4192 E MultiSpringDynamicAnimation7e44fb9: ERROR Not Found Bundle SurfaceExtAlpha
+03-19 11:42:46.441  4192  4192 E BlurUtils: fastBlurDirectly ratio=0.0   win=com.android.internal.policy.PhoneWindow@ed6287a
+03-19 11:42:46.584  1723  1723 E MI-SF   : surfaceflinger setAffinity success
+03-19 11:42:46.920  1542  6562 E ANDR-PERF-LM: VmRssMeter:: start() 358: Could not find pid, can not collect vmrss data
+03-19 11:42:46.931  1542  6563 E ANDR-PERF-LM: VmRssMeter:: start() 358: Could not find pid, can not collect vmrss data
+03-19 11:42:46.931  1542  6563 E ANDR-PERF-LM: AdaptiveLaunch: writeToDataBase() 64: Meter aborted or could not get meter data for this run

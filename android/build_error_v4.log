@@ -1,0 +1,466 @@
+> Task :gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:inspectClassesForKotlinIC UP-TO-DATE
+
+> Configure project :react-native-reanimated
+Android gradle plugin: 8.1.1
+Gradle: 8.3
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 35
+
+This Android Gradle plugin (8.1.1) was tested up to compileSdk = 34.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 35.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 35 is available.
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=35
+to this project's gradle.properties.
+
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generatePackageList
+> Task :app:preBuild
+> Task :app:preDebugBuild
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :lottie-react-native:preBuild UP-TO-DATE
+> Task :lottie-react-native:preDebugBuild UP-TO-DATE
+> Task :lottie-react-native:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preDebugBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-blob-util:preBuild UP-TO-DATE
+> Task :react-native-blob-util:preDebugBuild UP-TO-DATE
+> Task :react-native-blob-util:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-camera:preBuild UP-TO-DATE
+> Task :react-native-camera:preGeneralDebugBuild UP-TO-DATE
+> Task :react-native-camera:writeGeneralDebugAarMetadata UP-TO-DATE
+> Task :react-native-camera-roll_camera-roll:preBuild UP-TO-DATE
+> Task :react-native-camera-roll_camera-roll:preDebugBuild UP-TO-DATE
+> Task :react-native-camera-roll_camera-roll:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-document-picker:preBuild UP-TO-DATE
+> Task :react-native-document-picker:preDebugBuild UP-TO-DATE
+> Task :react-native-document-picker:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-fs:preBuild UP-TO-DATE
+> Task :react-native-fs:preDebugBuild UP-TO-DATE
+> Task :react-native-fs:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-gesture-handler:preBuild UP-TO-DATE
+> Task :react-native-gesture-handler:preDebugBuild UP-TO-DATE
+> Task :react-native-gesture-handler:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-image-picker:preBuild UP-TO-DATE
+> Task :react-native-image-picker:preDebugBuild UP-TO-DATE
+> Task :react-native-image-picker:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-linear-gradient:preBuild UP-TO-DATE
+> Task :react-native-linear-gradient:preDebugBuild UP-TO-DATE
+> Task :react-native-linear-gradient:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-permissions:preBuild UP-TO-DATE
+> Task :react-native-permissions:preDebugBuild UP-TO-DATE
+> Task :react-native-permissions:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-reanimated:assertLatestReactNativeWithNewArchitectureTask SKIPPED
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask SKIPPED
+> Task :react-native-reanimated:prepareHeadersForPrefab UP-TO-DATE
+> Task :react-native-reanimated:preBuild UP-TO-DATE
+> Task :react-native-reanimated:preDebugBuild UP-TO-DATE
+> Task :react-native-reanimated:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-safe-area-context:preBuild UP-TO-DATE
+> Task :react-native-safe-area-context:preDebugBuild UP-TO-DATE
+> Task :react-native-safe-area-context:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-screens:preBuild UP-TO-DATE
+> Task :react-native-screens:preDebugBuild UP-TO-DATE
+> Task :react-native-screens:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-svg:preBuild UP-TO-DATE
+> Task :react-native-svg:preDebugBuild UP-TO-DATE
+> Task :react-native-svg:writeDebugAarMetadata UP-TO-DATE
+> Task :react-native-vector-icons:preBuild UP-TO-DATE
+> Task :react-native-vector-icons:preDebugBuild UP-TO-DATE
+> Task :react-native-vector-icons:writeDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :lottie-react-native:generateDebugResValues UP-TO-DATE
+> Task :lottie-react-native:generateDebugResources UP-TO-DATE
+> Task :lottie-react-native:packageDebugResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugResValues UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateDebugResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:packageDebugResources UP-TO-DATE
+> Task :react-native-blob-util:generateDebugResValues
+> Task :react-native-blob-util:generateDebugResources
+> Task :app:checkDebugAarMetadata
+> Task :react-native-blob-util:packageDebugResources
+> Task :react-native-camera:generateGeneralDebugResValues
+> Task :react-native-camera:generateGeneralDebugResources
+> Task :react-native-camera:packageGeneralDebugResources
+> Task :react-native-camera-roll_camera-roll:generateDebugResValues
+> Task :react-native-camera-roll_camera-roll:generateDebugResources
+> Task :react-native-camera-roll_camera-roll:packageDebugResources
+> Task :react-native-document-picker:generateDebugResValues
+> Task :react-native-document-picker:generateDebugResources
+> Task :react-native-document-picker:packageDebugResources
+> Task :react-native-fs:generateDebugResValues
+> Task :react-native-fs:generateDebugResources
+> Task :react-native-fs:packageDebugResources
+> Task :react-native-gesture-handler:generateDebugResValues
+> Task :react-native-gesture-handler:generateDebugResources
+> Task :react-native-gesture-handler:packageDebugResources
+> Task :react-native-image-picker:generateDebugResValues
+> Task :react-native-image-picker:generateDebugResources
+> Task :react-native-image-picker:packageDebugResources
+> Task :react-native-linear-gradient:generateDebugResValues
+> Task :react-native-linear-gradient:generateDebugResources
+> Task :react-native-linear-gradient:packageDebugResources
+> Task :react-native-permissions:generateDebugResValues
+> Task :react-native-permissions:generateDebugResources
+> Task :react-native-permissions:packageDebugResources
+> Task :react-native-reanimated:generateDebugResValues
+> Task :react-native-reanimated:generateDebugResources
+> Task :react-native-reanimated:packageDebugResources
+> Task :react-native-safe-area-context:generateDebugResValues
+> Task :react-native-safe-area-context:generateDebugResources
+> Task :react-native-safe-area-context:packageDebugResources
+> Task :react-native-screens:generateDebugResValues
+> Task :react-native-screens:generateDebugResources
+> Task :react-native-screens:packageDebugResources
+> Task :react-native-svg:generateDebugResValues
+> Task :react-native-svg:generateDebugResources
+> Task :react-native-svg:packageDebugResources
+> Task :react-native-vector-icons:generateDebugResValues
+> Task :react-native-vector-icons:generateDebugResources
+> Task :react-native-vector-icons:packageDebugResources
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :lottie-react-native:extractDeepLinksDebug
+> Task :react-native-async-storage_async-storage:extractDeepLinksDebug
+> Task :react-native-blob-util:extractDeepLinksDebug
+> Task :react-native-camera:extractDeepLinksGeneralDebug
+> Task :react-native-camera-roll_camera-roll:extractDeepLinksDebug
+> Task :react-native-document-picker:extractDeepLinksDebug
+> Task :react-native-fs:extractDeepLinksDebug
+> Task :react-native-gesture-handler:extractDeepLinksDebug
+> Task :react-native-image-picker:extractDeepLinksDebug
+> Task :react-native-linear-gradient:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :react-native-permissions:extractDeepLinksDebug
+> Task :react-native-reanimated:extractDeepLinksDebug
+> Task :react-native-safe-area-context:extractDeepLinksDebug
+
+> Task :react-native-blob-util:processDebugManifest
+package="com.ReactNativeBlobUtil" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-blob-util\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.ReactNativeBlobUtil" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-blob-util\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-linear-gradient:processDebugManifest
+package="com.BV.LinearGradient" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-linear-gradient\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.BV.LinearGradient" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-linear-gradient\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-camera:processGeneralDebugManifest
+package="org.reactnative.camera" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-camera\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="org.reactnative.camera" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-camera\android\src\main\AndroidManifest.xml.
+
+> Task :lottie-react-native:processDebugManifest
+package="com.airbnb.android.react.lottie" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\lottie-react-native\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.airbnb.android.react.lottie" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\lottie-react-native\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-permissions:processDebugManifest
+> Task :react-native-gesture-handler:processDebugManifest
+
+> Task :react-native-async-storage_async-storage:processDebugManifest
+package="com.reactnativecommunity.asyncstorage" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\@react-native-async-storage\async-storage\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativecommunity.asyncstorage" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\@react-native-async-storage\async-storage\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-document-picker:processDebugManifest
+package="com.reactnativedocumentpicker" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-document-picker\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativedocumentpicker" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-document-picker\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-fs:processDebugManifest
+package="com.rnfs" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-fs\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.rnfs" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-fs\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-image-picker:processDebugManifest
+package="com.imagepicker" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-image-picker\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.imagepicker" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-image-picker\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-camera-roll_camera-roll:processDebugManifest
+
+> Task :react-native-reanimated:processDebugManifest
+package="com.swmansion.reanimated" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-reanimated\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.swmansion.reanimated" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-reanimated\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-screens:extractDeepLinksDebug
+
+> Task :react-native-safe-area-context:processDebugManifest
+package="com.th3rdwave.safeareacontext" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-safe-area-context\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.th3rdwave.safeareacontext" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-safe-area-context\android\src\main\AndroidManifest.xml.
+
+> Task :react-native-svg:extractDeepLinksDebug
+> Task :react-native-screens:processDebugManifest
+> Task :react-native-vector-icons:extractDeepLinksDebug
+> Task :react-native-svg:processDebugManifest
+
+> Task :react-native-vector-icons:processDebugManifest
+package="com.oblador.vectoricons" found in source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-vector-icons\android\src\main\AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.oblador.vectoricons" from the source AndroidManifest.xml: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-vector-icons\android\src\main\AndroidManifest.xml.
+
+> Task :lottie-react-native:compileDebugLibraryResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :lottie-react-native:parseDebugLocalResources
+> Task :react-native-async-storage_async-storage:compileDebugLibraryResources
+> Task :react-native-async-storage_async-storage:parseDebugLocalResources
+> Task :react-native-blob-util:compileDebugLibraryResources
+> Task :react-native-blob-util:parseDebugLocalResources
+> Task :react-native-camera:compileGeneralDebugLibraryResources
+> Task :lottie-react-native:generateDebugRFile
+> Task :react-native-async-storage_async-storage:generateDebugRFile
+> Task :react-native-camera:parseGeneralDebugLocalResources
+> Task :react-native-camera-roll_camera-roll:compileDebugLibraryResources
+> Task :react-native-blob-util:generateDebugRFile
+> Task :react-native-camera-roll_camera-roll:parseDebugLocalResources
+> Task :react-native-document-picker:compileDebugLibraryResources
+> Task :react-native-camera:generateGeneralDebugRFile
+> Task :react-native-camera-roll_camera-roll:generateDebugRFile
+> Task :react-native-document-picker:parseDebugLocalResources
+> Task :react-native-fs:compileDebugLibraryResources
+> Task :react-native-document-picker:generateDebugRFile
+> Task :react-native-fs:parseDebugLocalResources
+> Task :react-native-gesture-handler:compileDebugLibraryResources
+> Task :react-native-fs:generateDebugRFile
+> Task :react-native-gesture-handler:parseDebugLocalResources
+> Task :react-native-image-picker:compileDebugLibraryResources
+> Task :react-native-gesture-handler:generateDebugRFile
+> Task :react-native-image-picker:parseDebugLocalResources
+> Task :react-native-linear-gradient:compileDebugLibraryResources
+> Task :react-native-linear-gradient:parseDebugLocalResources
+> Task :react-native-image-picker:generateDebugRFile
+> Task :react-native-permissions:compileDebugLibraryResources
+> Task :react-native-permissions:parseDebugLocalResources
+> Task :react-native-linear-gradient:generateDebugRFile
+> Task :react-native-reanimated:compileDebugLibraryResources
+> Task :react-native-reanimated:parseDebugLocalResources
+> Task :react-native-permissions:generateDebugRFile
+> Task :react-native-safe-area-context:compileDebugLibraryResources
+> Task :react-native-safe-area-context:parseDebugLocalResources
+> Task :react-native-reanimated:generateDebugRFile
+> Task :react-native-svg:compileDebugLibraryResources
+> Task :react-native-safe-area-context:generateDebugRFile
+> Task :react-native-screens:parseDebugLocalResources
+> Task :react-native-screens:compileDebugLibraryResources
+> Task :react-native-svg:parseDebugLocalResources
+> Task :react-native-screens:generateDebugRFile
+> Task :react-native-svg:generateDebugRFile
+> Task :react-native-vector-icons:compileDebugLibraryResources
+> Task :react-native-vector-icons:parseDebugLocalResources
+> Task :lottie-react-native:generateDebugBuildConfig
+> Task :react-native-vector-icons:generateDebugRFile
+> Task :lottie-react-native:javaPreCompileDebug
+> Task :react-native-async-storage_async-storage:generateDebugBuildConfig
+> Task :react-native-async-storage_async-storage:javaPreCompileDebug
+> Task :react-native-blob-util:generateDebugBuildConfig
+
+> Task :lottie-react-native:compileDebugKotlin
+w: file:///C:/Users/sarth/Desktop/ARLearn/node_modules/lottie-react-native/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewPropertyManager.kt:20:38 'ReactFontManager' is deprecated. Deprecated in Java
+w: file:///C:/Users/sarth/Desktop/ARLearn/node_modules/lottie-react-native/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewPropertyManager.kt:71:24 'ReactFontManager' is deprecated. Deprecated in Java
+w: file:///C:/Users/sarth/Desktop/ARLearn/node_modules/lottie-react-native/android/src/main/java/com/airbnb/android/react/lottie/LottieAnimationViewPropertyManager.kt:85:24 'ReactFontManager' is deprecated. Deprecated in Java
+
+> Task :react-native-async-storage_async-storage:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: C:\Users\sarth\Desktop\ARLearn\node_modules\@react-native-async-storage\async-storage\android\src\javaPackage\java\com\reactnativecommunity\asyncstorage\AsyncStoragePackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :lottie-react-native:compileDebugJavaWithJavac
+> Task :react-native-blob-util:javaPreCompileDebug
+> Task :react-native-camera:generateGeneralDebugBuildConfig
+> Task :react-native-async-storage_async-storage:bundleLibCompileToJarDebug
+> Task :lottie-react-native:bundleLibCompileToJarDebug
+
+> Task :react-native-blob-util:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-camera:javaPreCompileGeneralDebug
+> Task :react-native-camera-roll_camera-roll:generateDebugBuildConfig
+> Task :react-native-blob-util:bundleLibCompileToJarDebug
+
+> Task :react-native-camera:compileGeneralDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-camera\android\src\main\java\com\google\android\cameraview\Camera2.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-camera-roll_camera-roll:javaPreCompileDebug
+> Task :react-native-document-picker:generateDebugBuildConfig
+> Task :react-native-camera:bundleLibCompileToJarGeneralDebug
+
+> Task :react-native-camera-roll_camera-roll:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: C:\Users\sarth\Desktop\ARLearn\node_modules\@react-native-camera-roll\camera-roll\android\src\main\java\com\reactnativecommunity\cameraroll\CameraRollPackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-document-picker:javaPreCompileDebug
+> Task :react-native-camera-roll_camera-roll:bundleLibCompileToJarDebug
+> Task :react-native-fs:generateDebugBuildConfig
+
+> Task :react-native-document-picker:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :react-native-fs:javaPreCompileDebug
+> Task :react-native-document-picker:bundleLibCompileToJarDebug
+> Task :react-native-gesture-handler:generateDebugBuildConfig
+
+> Task :react-native-fs:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:processDebugManifestForPackage
+> Task :react-native-fs:bundleLibCompileToJarDebug
+> Task :react-native-reanimated:generateDebugBuildConfig
+> Task :react-native-reanimated:packageNdkLibs NO-SOURCE
+> Task :react-native-reanimated:javaPreCompileDebug
+> Task :react-native-svg:generateDebugBuildConfig
+> Task :app:processDebugResources
+
+> Task :react-native-reanimated:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-svg:javaPreCompileDebug
+> Task :react-native-gesture-handler:javaPreCompileDebug
+> Task :react-native-reanimated:bundleLibCompileToJarDebug
+
+> Task :react-native-svg:compileDebugJavaWithJavac FAILED
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgPackage.java:14: error: cannot find symbol
+import com.facebook.react.BaseReactPackage;
+                         ^
+  symbol:   class BaseReactPackage
+  location: package com.facebook.react
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgPackage.java:39: error: cannot find symbol
+public class SvgPackage extends BaseReactPackage implements ViewManagerOnDemandReactPackage {
+                                ^
+  symbol: class BaseReactPackage
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:285: error: no suitable method found for processTransform(ReadableArray,double[],int,int,<null>,boolean)
+    TransformHelper.processTransform(
+                   ^
+    method TransformHelper.processTransform(ReadableArray,double[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method TransformHelper.processTransform(ReadableArray,double[],float,float,ReadableArray) is not applicable
+      (actual and formal argument lists differ in length)
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:290: error: translation is not public in MatrixDecompositionContext; cannot be accessed from outside package
+            sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.translation[0])));
+                                                                          ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:293: error: translation is not public in MatrixDecompositionContext; cannot be accessed from outside package
+            sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.translation[1])));
+                                                                          ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:295: error: rotationDegrees is not public in MatrixDecompositionContext; cannot be accessed from outside package
+        sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.rotationDegrees[2]));
+                                                                      ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:297: error: rotationDegrees is not public in MatrixDecompositionContext; cannot be accessed from outside package
+        sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.rotationDegrees[0]));
+                                                                      ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:299: error: rotationDegrees is not public in MatrixDecompositionContext; cannot be accessed from outside package
+        sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.rotationDegrees[1]));
+                                                                      ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:300: error: scale is not public in MatrixDecompositionContext; cannot be accessed from outside package
+    view.setScaleX(sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.scale[0]));
+                                                                                 ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:301: error: scale is not public in MatrixDecompositionContext; cannot be accessed from outside package
+    view.setScaleY(sanitizeFloatPropertyValue((float) sMatrixDecompositionContext.scale[1]));
+                                                                                 ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\RenderableViewManager.java:303: error: perspective is not public in MatrixDecompositionContext; cannot be accessed from outside package
+    double[] perspectiveArray = sMatrixDecompositionContext.perspective;
+                                                           ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgPackage.java:318: error: method does not override or implement a method from a supertype
+  @Override
+  ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgPackage.java:331: error: method does not override or implement a method from a supertype
+  @Override
+  ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgPackage.java:343: error: method does not override or implement a method from a supertype
+  @Override
+  ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:326: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 0, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:331: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 1, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:336: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 2, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:341: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 3, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:346: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 4, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:351: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 5, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:356: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 6, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:361: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 7, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:366: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 8, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:371: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 9, rawBorderRadius);
+                                   ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:376: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 10, rawBorderRadius);
+                                    ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:381: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 11, rawBorderRadius);
+                                    ^
+C:\Users\sarth\Desktop\ARLearn\node_modules\react-native-svg\android\src\main\java\com\horcrux\svg\SvgViewManager.java:386: error: incompatible types: Dynamic cannot be converted to float
+    super.setBorderRadius(view, 12, rawBorderRadius);
+                                    ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+27 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':react-native-svg:compileDebugJavaWithJavac'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --info option to get more log output.
+> Run with --scan to get full insights.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 59s
+186 actionable tasks: 158 executed, 28 up-to-date

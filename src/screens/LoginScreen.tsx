@@ -40,21 +40,6 @@ export default function LoginScreen({ onLogin }: Props) {
                 ])
             ),
         ]).start();
-
-        // Try to auto-restore previous session
-        (async () => {
-            try {
-                const raw = await AsyncStorage.getItem('ar_session');
-                if (raw) {
-                    const s = JSON.parse(raw);
-                    if (s && s.role && s.name) {
-                        onLogin(s.role as Role, s.name as string);
-                    }
-                }
-            } catch (_e) {
-                // No saved session — that's fine
-            }
-        })();
     }, []);
 
     const handleLogin = async () => {
