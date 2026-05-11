@@ -70,9 +70,75 @@ Detailed control over teachers within schools and the global library of AR model
    ```bash
    npm install
    ```
-3. **Setup Environment:**
+3. **Database Setup (Supabase):**
+   - Create a new project at [Supabase](https://supabase.com/).
+   - **SQL Schema:** Run the following script in the SQL Editor to create tables and relationships:
+     ```sql
+     -- Create Schools & Classes
+     CREATE TABLE schools (
+       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+       name TEXT NOT NULL,
+       code TEXT UNIQUE NOT NULL,
+       created_at TIMESTAMPTZ DEFAULT NOW()
+     );
+
+     CREATE TABLE classes (
+       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+       school_id UUID REFERENCES schools(id) ON DELETE CASCADE,
+       class_name TEXT NOT NULL,
+       created_at TIMESTAMPTZ DEFAULT NOW()
+     );
+
+     -- Create User Profiles
+     CREATE TABLE profiles (
+       id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+       email TEXT NOT NULL,
+       name TEXT NOT NULL,
+       role TEXT CHECK (role IN ('student', 'teacher', 'admin')) NOT NULL,
+       school_id UUID REFERENCES schools(id),
+       class_name TEXT,
+       username TEXT,
+       roll_number TEXT,
+       parent_mobile TEXT,
+       personal_detail_1 TEXT,
+       personal_detail_2 TEXT,
+       dob DATE,
+       must_change_password BOOLEAN DEFAULT FALSE,
+       created_at TIMESTAMPTZ DEFAULT NOW()
+     );
+
+     -- Create AR Models Library
+     CREATE TABLE ar_models (
+       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+       title TEXT NOT NULL,
+       description TEXT,
+       category TEXT NOT NULL,
+       subcategory TEXT,
+       model_url TEXT NOT NULL,
+       thumbnail_url TEXT,
+       teacher_id UUID REFERENCES profiles(id) ON DELETE SET NULL,
+       created_at TIMESTAMPTZ DEFAULT NOW()
+     );
+
+     -- Admin Password Reset Function
+     CREATE OR REPLACE FUNCTION admin_reset_password(target_user_id UUID, new_password TEXT)
+     RETURNS VOID AS $$
+     BEGIN
+       UPDATE auth.users
+       SET encrypted_password = extensions.crypt(new_password, extensions.gen_salt('bf'))
+       WHERE id = target_user_id;
+     END;
+     $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+     GRANT EXECUTE ON FUNCTION public.admin_reset_password(UUID, TEXT) TO authenticated;
+     ```
+   - **Storage:** Create a **Public** bucket named `ar-models` to host your 3D assets.
+   - **Authentication:** Enable Email/Password provider in the Auth settings.
+
+4. **Setup Environment:**
    Configure your `.env` or `src/services/supabase.ts` with your Supabase URL and Anon Key.
-4. **Run the app:**
+
+5. **Run the app:**
    ```bash
    # Start Metro
    npm start
